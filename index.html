@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FindSomeCache</title>
+
+  <!-- Load the Google Maps API with the Drawing tools enabled.
+       The API key must be yours, and you must enable Maps + Drawing in your API console. -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_SBiuOp6quVDM-hCyakes_MCtHysS51A&libraries=drawing" defer></script>
+
+  <!-- Load the custom JavaScript that powers the app -->
+  <script src="js/main.js" defer></script>
+
+  <!-- Load the CSS stylesheet for layout and styling -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Title Header -->
+  <h1>FindSomeCache</h1>
+
+  <!-- User input form to search for geocaches by location, type, and difficulty -->
+  <div id="filter-panel">
+    <!-- Latitude and Longitude input -->
+    <label for="lat">Latitude:</label>
+    <input type="text" id="lat" placeholder="e.g. 32.253" />
+    
+    <label for="lng">Longitude:</label>
+    <input type="text" id="lng" placeholder="e.g. -110.912" />
+    
+    <!-- Distance input (default = 10 miles) -->
+    <label for="distance">Distance (miles):</label>
+    <input type="text" id="distance" placeholder="Default 10" />
+
+    <!-- Cache Type dropdown (linked to database type IDs) -->
+    <label for="cacheType">Cache Type:</label>
+    <select id="cacheType">
+      <option value="">All</option>
+      <option value="1">Traditional</option>
+      <option value="2">Puzzle</option>
+      <option value="3">Multi</option>
+    </select>
+
+    <!-- Difficulty dropdown -->
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty">
+      <option value="">All</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+
+    <!-- Trigger geocache search -->
+    <button id="searchBtn">Search</button>
+  </div>
+
+  <!-- Main layout area: horizontal split between the map and info panel -->
+  <div id="main-container">
+
+    <!-- Map section (left side) -->
+    <div id="map"></div>
+
+    <!-- Side panel (right side) that holds results + photos -->
+    <div id="side-panel">
+
+      <!-- Geocache Results Table -->
+      <div id="results">
+        <table id="results-table">
+          <thead>
+            <tr>
+              <th>Cache Type</th>
+              <th>Difficulty</th>
+              <th>Coordinates</th>
+            </tr>
+          </thead>
+          <!-- JavaScript will dynamically fill in this <tbody> -->
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- Flickr photo thumbnails (loaded dynamically based on selected location) -->
+      <div id="photo-gallery"></div>
+
+    </div>
+  </div>
+</body>
+</html>

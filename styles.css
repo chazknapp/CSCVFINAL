@@ -1,0 +1,58 @@
+/* Apply base styling to the entire page */
+body {
+  font-family: Arial, sans-serif; /* Use a clean, readable font for the whole page */
+  margin: 20px;                  /* Add spacing around the entire body for breathing room */
+}
+
+/* Style for the top filter input section */
+#filter-panel {
+  margin-bottom: 10px;           /* Add spacing below the filter panel to separate it from the map */
+}
+
+/* Container that holds both the map and the right-hand info panel */
+#main-container {
+  display: flex;                 /* Use Flexbox to place child elements (map + side-panel) in a row */
+  gap: 10px;                     /* Add spacing between the map and the side panel */
+}
+
+/* MAP SECTION — Left side of the screen */
+#map {
+  flex: 1;                       /* Take up equal horizontal space as the side panel */
+  height: 600px;                /* Set a fixed height so the map is visible */
+}
+
+/* INFO PANEL — Right side of the screen */
+#side-panel {
+  flex: 1;                       /* Take up the other half of the horizontal space */
+  display: flex;                 /* Use Flexbox to arrange child elements (table + gallery) vertically */
+  flex-direction: column;        /* Stack children vertically (column layout) */
+  gap: 10px;                     /* Add spacing between the table and the photo gallery */
+}
+
+/* Style the geocache results table */
+#results-table {
+  width: 100%;                   /* Make the table fill the width of its container */
+  border-collapse: collapse;     /* Remove spacing between cell borders */
+}
+
+/* Style both table headers and table cells */
+#results-table th,
+#results-table td {
+  border: 1px solid #ccc;        /* Light grey border around each cell */
+  padding: 5px;                  /* Space inside each cell so text isn't crowded */
+  text-align: left;              /* Align text to the left inside the cells */
+}
+
+/* Container for the Flickr photo thumbnails */
+#photo-gallery {
+  display: flex;                 /* Arrange thumbnails in a row (wrapping to next line if needed) */
+  flex-wrap: wrap;               /* Allow images to wrap onto new lines if there are too many in one row */
+}
+
+/* Individual Flickr photo thumbnail styling */
+#photo-gallery img {
+  margin: 2px;                   /* Small margin between each image */
+  width: 70px;                   /* Uniform width for all thumbnails */
+  height: 70px;                  /* Uniform height for all thumbnails */
+  object-fit: cover;             /* Ensures the image fills the space without distortion (crops excess) */
+}
